@@ -1,0 +1,23 @@
+# <%= generated_by_babushka %>
+
+[general]
+accounts = GMailBackup
+maxsyncaccounts = 1
+
+[Account GMailBackup]
+localrepository = GmailLocal
+remoterepository = GmailRemote
+
+[Repository GmailLocal]
+type = Maildir
+localfolders = <%= var :gmail_backup_path %>
+
+[Repository GmailRemote]
+type = IMAP
+remotehost = imap.gmail.com
+remoteuser = <%= var :gmail_backup_email %>
+remotepass = <%= var :gmail_backup_password %>
+ssl = yes
+maxconnections = 1
+
+realdelete = no
